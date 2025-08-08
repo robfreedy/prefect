@@ -934,7 +934,7 @@ def _schedule_config_to_deployment_schedule(
 ) -> DeploymentScheduleCreate:
     anchor_date = schedule_config.get("anchor_date")
     timezone = schedule_config.get("timezone")
-    schedule_active = schedule_config.get("active", True)
+    schedule_active = schedule_config.get("active")
     parameters = schedule_config.get("parameters", {})
     slug = schedule_config.get("slug")
 
