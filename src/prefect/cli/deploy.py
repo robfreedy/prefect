@@ -760,6 +760,8 @@ async def _run_single_deploy(
         job_variables=get_from_dict(deploy_config, "work_pool.job_variables"),
     )
 
+    app.console.print(f"deployment schedule: {deployment.schedules}")
+
     deployment._set_defaults_from_flow(flow)
 
     deployment._parameter_openapi_schema = deploy_config["parameter_openapi_schema"]
@@ -934,7 +936,7 @@ def _schedule_config_to_deployment_schedule(
 ) -> DeploymentScheduleCreate:
     anchor_date = schedule_config.get("anchor_date")
     timezone = schedule_config.get("timezone")
-    schedule_active = schedule_config.get("active")
+    schedule_active = schedule_config.get("active", None)
     parameters = schedule_config.get("parameters", {})
     slug = schedule_config.get("slug")
 

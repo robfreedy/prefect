@@ -1108,8 +1108,8 @@ class DeploymentSchedule(ObjectBaseModel):
     schedule: SCHEDULE_TYPES = Field(
         default=..., description="The schedule for the deployment."
     )
-    active: bool = Field(
-        default=True, description="Whether or not the schedule is active."
+    active: Optional[bool] = Field(
+        default=None, description="Whether or not the schedule is active."
     )
     max_scheduled_runs: Optional[PositiveInteger] = Field(
         default=None,
